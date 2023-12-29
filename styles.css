@@ -33,11 +33,4 @@ body {
   width: 30px;
   cursor: pointer;
   filter: invert(10%) sepia(72%) saturate(6559%) hue-rotate(0deg) brightness(100%) contrast(115%);
-}
-
-#add-task-button {
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
 }/*# sourceMappingURL=styles.css.map */

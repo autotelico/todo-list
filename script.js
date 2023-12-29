@@ -27,13 +27,29 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
     const addTaskBtn = document.querySelector('#add-task-button')
+    const TaskCreationContainer = document.querySelector('#task-creation-container');
+    const createTaskBtn = document.querySelector('#task-creation-button');
+    
+    const taskTitle = document.querySelector('#task-title');
+    const taskDueDate = document.querySelector('#task-due-date');
+    
     const returnToProjectsBtn = document.querySelector('#projects-button');
     
     let taskCount = 1;
 
     addTaskBtn.addEventListener('click', () => {
-        Task(taskCount);
+        if (TaskCreationContainer.classList.contains('d-none')) {
+            TaskCreationContainer.classList.remove('d-none');
+        } else {
+            console.log('Task creation container already visible.');
+        }
+    })
+
+    createTaskBtn.addEventListener('click', () => {
+        Task(taskTitle.value, taskDueDate.value, taskCount);
         taskCount++;
+        taskTitle.value === '';
+        taskDueDate.value === '';
     })
 
     returnToProjectsBtn.addEventListener('click', () => {

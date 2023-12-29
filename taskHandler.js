@@ -1,14 +1,17 @@
-export function Task(taskCount) {
+const tasksContainer = document.querySelector('#tasks-container');
+
+// const taskPriority = document.querySelector('#task-priority');
+
+export function Task(title, dueDate, taskCount) {
     const newTask = {};
-    newTask.title = 'Feed dog';
-    newTask.dueDate = '01/02';
-    newTask.priority = 'medium';
+    newTask.title = title;
+    newTask.dueDate = dueDate; 
+    newTask.priority = 'medium'; // taskPriority
 
     displayTask(newTask, taskCount);
     return newTask;
 }
 
-const tasksContainer = document.querySelector('#tasks-container');
 
 function displayTask(task, count) {
 
