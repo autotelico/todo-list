@@ -9,7 +9,6 @@ export function Task(taskCount) {
 }
 
 const tasksContainer = document.querySelector('#tasks-container');
-const projectsContainer = document.querySelector('#projects-container');
 
 function displayTask(task, count) {
 
