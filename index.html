@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,61 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
+
 <body>
-    <header id="header" class="bg-primary d-flex justify-content-center align-items-center text-decoration-underline fs-1">To-do List</header>
-    <div class="container mt-4 p-3">
+    <header id="header"
+        class="text-muted bg-primary d-flex justify-content-center align-items-center text-decoration-underline fs-1">
+        To-do List
+    </header>
+    <div class="container mt-4 p-3 rounded">
         <h2 id="project-title">Project Title</h2>
-        <div class="task mt-1 bg-secondary rounded p-2 ps-3">Task 1</div>
-        <div class="task mt-1 bg-secondary rounded p-2 ps-3">Task 2</div>
-        <div class="task mt-1 bg-secondary rounded p-2 ps-3">Task 3</div>
+        <div class="task mt-1 bg-secondary rounded p-2 ps-3">
+            <div class="row">
+                <div class="col-sm">
+                    <input type="checkbox">
+                    Task 1
+                </div>
+                <div class="col-sm">Due date: tomorrow
+                    <svg title='Delete task' class="delete-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <title>delete</title>
+                        <path
+                            d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="task mt-1 bg-secondary rounded p-2 ps-3">
+            <div class="row">
+                <div class="col-sm">
+                    <input type="checkbox">
+                    Task 2
+                </div>
+                <div class="col-sm">Due date: tomorrow
+                    <svg title='Delete task' class="delete-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <title>delete</title>
+                        <path
+                            d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="task mt-1 bg-secondary rounded p-2 ps-3">
+            <div class="row">
+                <div class="col-sm">
+                    <input type="checkbox">
+                    Task 3
+                </div>
+                <div class="col-sm">Due date: tomorrow
+                    <svg title='Delete task' class="delete-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <title>delete</title>
+                        <path
+                            d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
