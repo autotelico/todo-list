@@ -16,8 +16,8 @@ body {
   max-width: 700px;
 }
 
-#project-container {
-  position: relative;
+#project-container .col-sm {
+  cursor: pointer;
 }
 
 .task {

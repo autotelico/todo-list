@@ -1,4 +1,4 @@
-import { Task } from './factoryFunctions.js';
+import { Task } from './taskHandler.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
         Task(taskCount);
         taskCount++;
     })
-    
 
 
 })
