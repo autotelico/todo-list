@@ -3,23 +3,20 @@ export function Task(taskCount) {
     newTask.title = 'Feed dog';
     newTask.dueDate = '01/02';
     newTask.priority = 'medium';
-    // newTask.delete = function() {
-    //     console.log('Task deleted.');
-    // }
+
     displayTask(newTask, taskCount);
     return newTask;
 }
 
-function displayTask(task, count) {
+const tasksContainer = document.querySelector('#tasks-container');
+const projectsContainer = document.querySelector('#projects-container');
 
-    const project = document.querySelector('#project-container');
+function displayTask(task, count) {
 
     const div = document.createElement('div');
     div.classList.add('task', 'mt-1', 'bg-secondary', 'rounded', 'p-2', 'ps-3');
     div.id = `task${count}`;
     console.log(div.id);
-
-    
     
     const rowDiv = document.createElement('div');
     rowDiv.classList.add('row');
@@ -58,6 +55,7 @@ function displayTask(task, count) {
     })
     colDiv2.appendChild(svg);
 
-
-    project.appendChild(div);
+    tasksContainer.appendChild(div);
 }
+
+

@@ -17,7 +17,11 @@ body {
     max-width: 700px;
 }
 
-#project-container .col-sm {
+#projects-container {
+    cursor: pointer;
+}
+
+#projects-container .col-sm {
     cursor: pointer;
 }
 
