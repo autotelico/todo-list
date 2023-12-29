@@ -1,0 +1,25 @@
+@import './node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+$header-size: 40px;
+
+body {
+    background-color: #eee;
+}
+
+#header {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: magenta;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $header-size;
+    font-weight: bold;
+}
+
+.container {
+    background-color: #ddd;
+    height: 200px;
+}
