@@ -66,4 +66,20 @@ function displayTask(task, count, parentProject) {
     tasksContainer.appendChild(div);
 }
 
+export function showTaskForm() {
+    const TaskCreationContainer = document.querySelector('#task-creation-container');
+    if (TaskCreationContainer.classList.contains('d-none')) {
+        TaskCreationContainer.classList.remove('d-none');
+        console.log('Showed form');
+    } else {
+        console.log('Task creation container already visible.');
+    }
+}
 
+export function hideTaskForm() {
+    const TaskCreationContainer = document.querySelector('#task-creation-container');
+    if (!TaskCreationContainer.classList.contains('d-none')) {
+        TaskCreationContainer.classList.add('d-none');
+        console.log('Hid form');
+    }
+}

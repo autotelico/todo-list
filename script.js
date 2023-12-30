@@ -1,5 +1,5 @@
-import { Task } from './taskHandler.js';
-import { createProject, getProjectTasks, displayProjects, getProject } from './projectHandler.js';
+import { Task, showTaskForm, hideTaskForm } from './taskHandler.js';
+import { createProject, getProjectTasks, displayProjects } from './projectHandler.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
     const addTaskBtn = document.querySelector('#add-task-button')
-    const TaskCreationContainer = document.querySelector('#task-creation-container');
     const createTaskBtn = document.querySelector('#task-creation-button');
     
     const taskTitle = document.querySelector('#task-title');
@@ -40,11 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let taskCount = 1;
 
     addTaskBtn.addEventListener('click', () => {
-        if (TaskCreationContainer.classList.contains('d-none')) {
-            TaskCreationContainer.classList.remove('d-none');
-        } else {
-            console.log('Task creation container already visible.');
-        }
+        showTaskForm();
     })
 
     createTaskBtn.addEventListener('click', (e) => {
@@ -55,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     returnToProjectsBtn.addEventListener('click', () => {
+        hideTaskForm();
         displayProjects();
     })
 })
