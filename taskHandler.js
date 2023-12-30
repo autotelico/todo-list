@@ -1,6 +1,7 @@
 const tasksContainer = document.querySelector('#tasks-container');
 
 // const taskPriority = document.querySelector('#task-priority');
+const taskList = [];
 
 export function Task(title, dueDate, taskCount) {
     const newTask = {};
@@ -9,6 +10,7 @@ export function Task(title, dueDate, taskCount) {
     newTask.priority = 'medium'; // taskPriority
 
     displayTask(newTask, taskCount);
+    taskList.push(newTask);
     return newTask;
 }
 
