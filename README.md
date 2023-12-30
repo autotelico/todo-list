@@ -1,1 +1,1 @@
-Built with Webpack, Bootstrap, Sass, and a modules for DOM manipulation.
+Built with npm, Webpack, loaders, Bootstrap, Sass, and modules for DOM manipulation.
