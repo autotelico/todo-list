@@ -1,5 +1,5 @@
 import { Task } from './taskHandler.js';
-import { createProject, displayProjectTasks, displayProjects, getProject } from './projectHandler.js';
+import { createProject, getProjectTasks, displayProjects, getProject } from './projectHandler.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     createProjectBtn.addEventListener('click', () => {
 
         let projectTitle = prompt('Type in your project name');
-        console.log(projectTitle);
         if (projectTitle) {
             createProject(projectTitle);
         } else {
@@ -16,11 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
         refreshEventListeners();
     })
 
+    let currentProject; // maybe add this as the return of refreshEventListeners?
+
     function refreshEventListeners() {
         const projects = document.querySelectorAll('.project');
         projects.forEach(project => {
             project.addEventListener('click', () => {
-                displayProjectTasks();
+                currentProject = project.id;
+                getProjectTasks(currentProject);
             })
         })
     }
@@ -45,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    createTaskBtn.addEventListener('click', () => {
-        Task(taskTitle.value, taskDueDate.value, taskCount);
+    createTaskBtn.addEventListener('click', (e) => {
+        Task(taskTitle.value, taskDueDate.value, taskCount, currentProject);
         taskCount++;
         taskTitle.value === '';
         taskDueDate.value === '';

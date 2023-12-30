@@ -31,59 +31,16 @@
 
     <!-- To-dos -->
     <div id="tasks-container" class="container mt-4 p-3 rounded d-none">
-        <h2 id="project-title">Project Title</h2>
-        <div class="task mt-1 bg-secondary rounded p-2 ps-3">
-            <div class="row">
-                <div class="col-sm">
-                    <input type="checkbox">
-                    Task 1
-                </div>
-                <div class="col-sm">Due date: tomorrow
-                    <svg class="delete-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <title>Delete Task</title>
-                        <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="task mt-1 bg-secondary rounded p-2 ps-3">
-            <div class="row">
-                <div class="col-sm">
-                    <input type="checkbox">
-                    Task 2
-                </div>
-                <div class="col-sm">Due date: tomorrow
-                    <svg class="delete-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <title>Delete Task</title>
-                        <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="task mt-1 bg-secondary rounded p-2 ps-3">
-            <div class="row">
-                <div class="col-sm">
-                    <input type="checkbox">
-                    Task 3
-                </div>
-                <div class="col-sm">Due date: tomorrow
-                    <svg class="delete-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <title>Delete Task</title>
-                        <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                    </svg>
-                </div>
-
-            </div>
-        </div>
+        
         <button type="button" id="add-task-button" class="mt-2">Add Task</button>
         <div class="container d-none" id="task-creation-container">
             <label for="task-title">Task title: <input id="task-title" type="text"></label>
             <label for="task-due-date">Due date: <input id="task-due-date" type="text"></label>
             <label for="priority">Priority level:
                 <select name="priority" id="priority">
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
                     <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
                 </select>
             </label>
             <button type="button" id="task-creation-button">Create Task</button>
