@@ -7,7 +7,11 @@ export function Task(title, dueDate, taskCount, parentProject) {
     const newTask = {};
     newTask.title = title;
     newTask.dueDate = dueDate; 
-    newTask.priority = 'medium'; // taskPriority
+    newTask.priority = (function() {
+        const priorityElement = document.querySelector('#priority');
+        console.log(`Priority of task '${newTask.title}' is ${priorityElement.value}.`);
+        return priorityElement.value;
+    })();
     newTask.project = parentProject;
 
     displayTask(newTask, taskCount, parentProject);

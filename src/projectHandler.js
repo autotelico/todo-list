@@ -47,10 +47,3 @@ export function displayProjects() {
         console.log('Hiding all tasks');
     })
 }
-
-export function getProject(eventTarget) {
-    const tasks = document.querySelectorAll('.task');
-    tasks.forEach(task => {
-            console.log('Task ID: ' + task.id);
-    })
-}
