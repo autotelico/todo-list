@@ -52,7 +52,16 @@ function displayTask(task, count, parentProject) {
     const img = document.createElement('img');
     img.classList.add('delete-button');
     img.src = '../src/icons/delete-icon.svg';
+<<<<<<< HEAD
 
+=======
+    img.title = 'Delete Task';
+
+    img.innerHTML = `<title>Delete Task</title>
+    <path
+        d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />`;
+
+>>>>>>> workingBranch
     img.addEventListener('click', () => {
         div.remove();
         console.log(`Successfully removed ${div.id}.`);

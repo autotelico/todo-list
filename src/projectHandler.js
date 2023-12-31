@@ -66,4 +66,18 @@ export function displayProjects() {
         task.classList.add('d-none');
         console.log('Hiding all tasks');
     })
+
+
+}
+export function deleteProject(project, allProjects) {
+    project.remove();
+    allProjects.forEach(singleProject => {
+        if (singleProject === project.id) {
+            allProjects.splice(allProjects.indexOf(singleProject), 1);
+            console.log('New array is:');
+            console.log(allProjects);
+            localStorage.setItem('projectTitles', JSON.stringify(allProjects));
+        }
+    })
+
 }
