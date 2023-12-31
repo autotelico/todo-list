@@ -3,16 +3,27 @@ import { createProject, getProjectTasks, displayProjects } from './projectHandle
 import './styles.css';
 
 document.addEventListener("DOMContentLoaded", () => {
+    
+    const myProjects = JSON.parse(localStorage.getItem('projectTitles'))
+    console.log(myProjects);
+
+    for (const title of myProjects) {
+        createProject(title);
+    }
+    refreshEventListeners();
 
     const createProjectBtn = document.querySelector('#create-project-button');
     createProjectBtn.addEventListener('click', () => {
-
+        
         let projectTitle = prompt('Type in your project name');
         if (projectTitle) {
             createProject(projectTitle);
         } else {
             alert('You must input a name to your project to create it.')
         }
+
+        myProjects.push(projectTitle);
+        localStorage.setItem('projectTitles', JSON.stringify(myProjects));
         refreshEventListeners();
     })
 
