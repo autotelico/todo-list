@@ -1,5 +1,5 @@
 import { Task, showTaskForm, hideTaskForm } from './taskHandler.js';
-import { createProject, getProjectTasks, displayProjects } from './projectHandler.js';
+import { createProject, getProjectTasks, displayProjects, deleteProject } from './projectHandler.js';
 import './styles.css';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             createProject(title);
         }
     }
-
+    refreshEventListeners();
 
     const createProjectBtn = document.querySelector('#create-project-button');
     createProjectBtn.addEventListener('click', () => {
@@ -28,14 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
         refreshEventListeners();
     })
 
-    let currentProject; // maybe add this as the return of refreshEventListeners?
+    let currentProjectID; // maybe add this as the return of refreshEventListeners?
+    let currentProject;
 
     function refreshEventListeners() {
         const projects = document.querySelectorAll('.project');
         projects.forEach(project => {
             project.addEventListener('click', () => {
-                currentProject = project.id;
-                getProjectTasks(currentProject);
+                currentProjectID = project.id;
+                currentProject = project;
+                // console.log();
+                getProjectTasks(currentProjectID);
             })
         })
     }
@@ -48,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskDueDate = document.querySelector('#task-due-date');
     
     const returnToProjectsBtn = document.querySelector('#projects-button');
+    const deleteProjectBtn = document.querySelector('#delete-project-button');
     
     let taskCount = 1;
 
@@ -65,5 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
     returnToProjectsBtn.addEventListener('click', () => {
         hideTaskForm();
         displayProjects();
+    })
+
+    deleteProjectBtn.addEventListener('click', () => {
+        deleteProject(currentProject, myProjects);
+        refreshEventListeners();
     })
 })
