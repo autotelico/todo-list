@@ -3,20 +3,22 @@ import { createProject, getProjectTasks, displayProjects } from './projectHandle
 import './styles.css';
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     const myProjects = JSON.parse(localStorage.getItem('projectTitles'))
     console.log(myProjects);
+    // console.log(myProjects.splice(myProjects.indexOf('Two'), 1));
+    // console.log(myProjects);
 
     for (const title of myProjects) {
         createProject(title);
     }
-    refreshEventListeners();
+    refreshProjectEventListeners();
 
     const createProjectBtn = document.querySelector('#create-project-button');
     createProjectBtn.addEventListener('click', () => {
-        
+
         let projectTitle = prompt('Type in your project name');
-        if (projectTitle) {
+        if (projectTitle){
             createProject(projectTitle);
         } else {
             alert('You must input a name to your project to create it.')
@@ -24,12 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         myProjects.push(projectTitle);
         localStorage.setItem('projectTitles', JSON.stringify(myProjects));
-        refreshEventListeners();
+        refreshProjectEventListeners();
     })
 
-    let currentProject; // maybe add this as the return of refreshEventListeners?
+    let currentProject; // maybe add this as the return of refreshProjectEventListeners?
 
-    function refreshEventListeners() {
+    function refreshProjectEventListeners() {
         const projects = document.querySelectorAll('.project');
         projects.forEach(project => {
             project.addEventListener('click', () => {
@@ -38,16 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         })
     }
-        
+
 
     const addTaskBtn = document.querySelector('#add-task-button')
     const createTaskBtn = document.querySelector('#task-creation-button');
-    
+
     const taskTitle = document.querySelector('#task-title');
     const taskDueDate = document.querySelector('#task-due-date');
-    
+
     const returnToProjectsBtn = document.querySelector('#projects-button');
-    
+    const deleteProjectBtn = document.querySelector('#delete-project-button');
+
     let taskCount = 1;
 
     addTaskBtn.addEventListener('click', () => {
@@ -65,4 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
         hideTaskForm();
         displayProjects();
     })
+
+    deleteProjectBtn.addEventListener('click', () => {
+        
+    })    
 })

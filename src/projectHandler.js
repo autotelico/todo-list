@@ -12,7 +12,27 @@ export function createProject(title) {
     div.id = title;
     console.log(div.id);
     div.textContent = title;
+
+    const img = document.createElement('img');
+    img.classList.add('delete-button');
+    img.src = '../src/icons/delete-icon.svg';
+
+    img.addEventListener('click', deleteProject(div))
+    div.appendChild(img);
+
     projectsContainer.appendChild(div);
+}
+
+function deleteProject(divElement) {
+    divElement.remove();
+        const projects = JSON.parse(localStorage.getItem('projectTitles'));
+        projects.forEach(project => {
+            if (project === divElement.id) {
+                projects.splice(projects.indexOf(project), 1)
+                console.log(projects.indexOf(project));
+            }
+        })
+        console.log(`Successfully removed ${divElement.id}.`);
 }
 
 export function getProjectTasks(projectId) {

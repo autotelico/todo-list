@@ -49,20 +49,15 @@ function displayTask(task, count, parentProject) {
     colDiv2.textContent = `Due date: ${task.dueDate}`;
     rowDiv.appendChild(colDiv2);
 
-    const svg = document.createElement('svg');
-    svg.classList.add('delete-button');
-    svg.setAttribute('xmlns', "http://www.w3.org/2000/svg");
-    svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+    const img = document.createElement('img');
+    img.classList.add('delete-button');
+    img.src = '../src/icons/delete-icon.svg';
 
-    svg.innerHTML = `<title>Delete Task</title>
-    <path
-        d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />`;
-
-    svg.addEventListener('click', () => {
+    img.addEventListener('click', () => {
         div.remove();
         console.log(`Successfully removed ${div.id}.`);
     })
-    colDiv2.appendChild(svg);
+    colDiv2.appendChild(img);
 
     div.setAttribute('data-childofproject', parentProject)
     console.log('Parent project of the task is ' + parentProject);
