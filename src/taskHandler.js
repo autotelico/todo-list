@@ -52,9 +52,6 @@ function displayTask(task, count, parentProject) {
     const img = document.createElement('img');
     img.classList.add('delete-button');
     img.src = '../src/icons/delete-icon.svg';
-    const img = document.createElement('img');
-    img.classList.add('delete-button');
-    img.src = '../src/icons/delete-icon.svg';
     img.title = 'Delete Task';
 
     img.innerHTML = `<title>Delete Task</title>
