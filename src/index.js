@@ -7,11 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const myProjects = [];
     if (localStorage.getItem('projectTitles')) {
         myProjects.push(...JSON.parse(localStorage.getItem('projectTitles')));
+        console.log('Starting myProjects array:');
+        console.log(myProjects);
         for (const title of myProjects) {
             createProject(title);
         }
     }
-    refreshEventListeners();
+    refreshProjectEventListeners();
 
     const createProjectBtn = document.querySelector('#create-project-button');
     createProjectBtn.addEventListener('click', () => {
@@ -19,9 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let projectTitle = prompt('Type in your project name');
         if (projectTitle){
             createProject(projectTitle);
-            myProjects.push(projectTitle);
             localStorage.setItem('projectTitles', JSON.stringify(myProjects));
-            console.log(myProjects);
         } else {
             alert('You must input a name to your project to create it.')
         }
@@ -31,17 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
         refreshProjectEventListeners();
     })
 
-    let currentProjectID; // maybe add this as the return of refreshEventListeners?
     let currentProject;
 
     function refreshProjectEventListeners() {
         const projects = document.querySelectorAll('.project');
         projects.forEach(project => {
             project.addEventListener('click', () => {
-                currentProjectID = project.id;
                 currentProject = project;
                 // console.log();
-                getProjectTasks(currentProjectID);
+                getProjectTasks(currentProject.id);
             })
         })
     }
@@ -76,6 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     deleteProjectBtn.addEventListener('click', () => {
         deleteProject(currentProject, myProjects);
-        refreshEventListeners();
+        refreshProjectEventListeners();
     })
 })
