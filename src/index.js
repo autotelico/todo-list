@@ -6,6 +6,7 @@ import './styles.css';
 document.addEventListener("DOMContentLoaded", () => {
     let taskCount = 1;
     let currentProject;
+    const localTaskList = [];
 
     const myProjects = [];
     if (localStorage.getItem('projectTitles')) {
@@ -34,7 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('this is the project:');
                 console.log(obj);
                 const madeTask = displayTask(obj, taskCount, obj.project)
+                localTaskList.push(madeTask)
                 console.log(madeTask);
+                console.log(localTaskList);
             })
         })
     }
