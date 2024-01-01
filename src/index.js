@@ -6,7 +6,9 @@ import './styles.css';
 document.addEventListener("DOMContentLoaded", () => {
     let taskCount = 1;
     let currentProject;
+    let myTasks;
     const localTaskList = [];
+    console.log(taskList);
 
     const myProjects = [];
     if (localStorage.getItem('projectTitles')) {
@@ -27,20 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshProjectEventListeners();
 
     if (localStorage.tasks) {
-        taskList.push(JSON.parse(localStorage.getItem('tasks')))
-        taskList.forEach(task => {
-            console.log('This is the task:');
+        myTasks = JSON.parse(localStorage.getItem('tasks'))
+        console.log('New task list:');
+        console.log(taskList);
+        myTasks.forEach(task => {
             console.log(task);
-            task.forEach(obj => {
-                console.log('this is the project:');
-                console.log(obj);
-                const madeTask = displayTask(obj, taskCount, obj.project)
-                localTaskList.push(madeTask)
-                console.log(madeTask);
-                console.log(localTaskList);
-            })
+            const madeTask = displayTask(task, taskCount, task.project)
+            localTaskList.push(madeTask)
         })
     }
+
+
+    console.log('Starting taskList:');
+    console.log(taskList);
 
     const createProjectBtn = document.querySelector('#create-project-button');
     createProjectBtn.addEventListener('click', () => {
@@ -61,7 +62,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function refreshProjectEventListeners() {
         const projects = document.querySelectorAll('.project');
         projects.forEach(project => {
-            project.addEventListener('click', () => {
+            project.addEventListener('click', (e) => {
+                let clickedProject = e.target.id;
+                myTasks.forEach(obj => {
+                    if (obj.project === clickedProject) {
+                        console.log('Yes, same');
+                        const result = getProjectTasks(clickedProject)
+                        console.log(result);
+                    }
+                    if (obj.project === clickedProject) {
+                        console.log('Yes, same');
+                        const result = getProjectTasks(clickedProject)
+                        console.log(result);
+                    }
+                })
                 currentProject = project;
                 getProjectTasks(currentProject.id);
             })
@@ -89,12 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createTaskBtn.addEventListener('click', () => {
         const builtTask = Task(taskTitle.value, taskDueDate.value, taskCount, currentProject.id);
-        taskList.push(builtTask);
-        localStorage.setItem('tasks', JSON.stringify(taskList));
+        myTasks.push(builtTask);
+        localStorage.setItem('tasks', JSON.stringify(myTasks));
         console.log('Built task:');
         console.log(builtTask);
         console.log('Task list:');
-        console.log(taskList);
+        console.log(myTasks);
         taskCount++;
         taskTitle.value === '';
         taskDueDate.value === '';

@@ -2,6 +2,7 @@ const tasksContainer = document.querySelector('#tasks-container');
 
 // const taskPriority = document.querySelector('#task-priority');
 export const taskList = [];
+const allTasks = JSON.parse(localStorage.getItem('tasks'));
 
 export function Task(title, dueDate, taskCount, parentProject) {
     console.log(title);
@@ -80,5 +81,15 @@ export function hideTaskForm() {
 
 export function deleteTask(selectedTask) {
     selectedTask.remove();
+    console.log(selectedTask);
+    console.log(selectedTask.dataset.childofproject);
+    allTasks.forEach(task => {
+        if (selectedTask.dataset.childofproject === task.project) {
+            allTasks.splice(allTasks.indexOf(task), 1);
+            localStorage.setItem('tasks', JSON.stringify(allTasks))
+            console.log('Your tasks now are:');
+            console.log(allTasks);
+        }
+    })
     console.log(`Successfully removed ${selectedTask.id}.`);
 }
