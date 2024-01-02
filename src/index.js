@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const madeTask = displayTask(task, taskCount, task.project, task.priority)
             localTaskList.push(madeTask)
         })
+    } else {
+        myTasks = [];
     }
 
 
@@ -64,18 +66,20 @@ document.addEventListener("DOMContentLoaded", () => {
         projects.forEach(project => {
             project.addEventListener('click', (e) => {
                 let clickedProject = e.target.id;
-                myTasks.forEach(obj => {
-                    if (obj.project === clickedProject) {
-                        console.log('Yes, same');
-                        const result = getProjectTasks(clickedProject)
-                        console.log(result);
-                    }
-                    if (obj.project === clickedProject) {
-                        console.log('Yes, same');
-                        const result = getProjectTasks(clickedProject)
-                        console.log(result);
-                    }
-                })
+                if (myTasks) {
+                    myTasks.forEach(obj => {
+                        if (obj.project === clickedProject) {
+                            console.log('Yes, same');
+                            const result = getProjectTasks(clickedProject)
+                            console.log(result);
+                        }
+                        if (obj.project === clickedProject) {
+                            console.log('Yes, same');
+                            const result = getProjectTasks(clickedProject)
+                            console.log(result);
+                        }
+                    })
+                }
                 currentProject = project;
                 getProjectTasks(currentProject.id);
             })
