@@ -62,7 +62,7 @@ export function displayTask(task, count, parentProject, priority) {
 
     const img = document.createElement('img');
     img.classList.add('delete-button');
-    img.src = '../src/icons/delete-icon.svg';
+    img.src = '../dist/icons/delete-icon.svg';
     img.title = 'Delete Task';
     img.addEventListener('click', (e) => {
         deleteTask(div, e);

@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         myTasks = [];
     }
 
-
     console.log('Starting taskList:');
     console.log(taskList);
 
