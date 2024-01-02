@@ -15,15 +15,26 @@ export function Task(title, dueDate, taskCount, parentProject) {
     })();
     newTask.project = parentProject;
 
-    displayTask(newTask, taskCount, parentProject);
+    displayTask(newTask, taskCount, parentProject, newTask.priority);
     return newTask;
 }
 
-export function displayTask(task, count, parentProject) {
+export function displayTask(task, count, parentProject, priority) {
 
     const div = document.createElement('div');
-    div.classList.add('task', 'mt-1', 'bg-secondary', 'rounded', 'p-2', 'ps-3');
+    div.classList.add('task', 'mt-1', 'rounded', 'p-2', 'ps-3');
     div.id = `task${count}`;
+    switch(priority) {
+        case 'low':
+            div.style.backgroundColor = '#0af';
+            break;
+        case 'medium':
+            div.style.backgroundColor = 'yellow';
+            break;
+        case 'high':
+            div.style.backgroundColor = 'red';
+            break;
+    }
     
     const rowDiv = document.createElement('div');
     rowDiv.classList.add('row');

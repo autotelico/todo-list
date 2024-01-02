@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(taskList);
         myTasks.forEach(task => {
             console.log(task);
-            const madeTask = displayTask(task, taskCount, task.project)
+            const madeTask = displayTask(task, taskCount, task.project, task.priority)
             localTaskList.push(madeTask)
         })
     }
