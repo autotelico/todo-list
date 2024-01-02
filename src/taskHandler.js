@@ -45,6 +45,9 @@ export function displayTask(task, count, parentProject, priority) {
 
     const input = document.createElement("input");
     input.type = 'checkbox';
+    input.addEventListener('change', () => {
+        input.checked ? div.style.opacity = 0.6 : div.style.opacity = 1;
+    })
     colDiv1.appendChild(input);
     const para1 = document.createElement('p');
     para1.textContent = task.title;
