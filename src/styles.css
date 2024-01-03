@@ -19,7 +19,8 @@ body {
   cursor: pointer;
 }
 
-.project, .task {
+.project,
+.task {
   position: relative;
 }
 
@@ -31,4 +32,4 @@ body {
   height: 30px;
   width: 30px;
   cursor: pointer;
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */

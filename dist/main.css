@@ -22,7 +22,8 @@ body {
   cursor: pointer;
 }
 
-.project, .task {
+.project,
+.task {
   position: relative;
 }
 
